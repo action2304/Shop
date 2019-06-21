@@ -1,20 +1,11 @@
 package com.epam.stream27.shop;
 
-import java.util.Map;
 import java.util.Scanner;
 
 class Shop {
 
-    private int productNumber;
-
-    public int getProductNumber() {
-        return productNumber;
-    }
-
-    public void setProductNumber(int productNumber) {
-        scanner.nextInt();
-        this.productNumber = productNumber;
-    }
+    int productNumber;
+    int customerNumber;
 
     private Scanner scanner = new Scanner(System.in);
     private Customers customers = new Customers();
@@ -28,34 +19,27 @@ class Shop {
         System.out.println("3 - Mike");
         System.out.println("4 - Alice");
         System.out.println("5 - Tomas");
-        switch (scanner.nextInt(productNumber)) {
-            case 1: // выбрали первого покупателя
+        customerNumber = scanner.nextInt(); // 3
+        switch (customerNumber) {
+            case 1:
                 System.out.println(StringConstants.messageForSelection);
-                getProduct(scanner.nextInt()); // выбрали товар
+                getProduct(productNumber = scanner.nextInt());
                 break;
             case 2:
                 System.out.println(StringConstants.messageForSelection);
-                getProduct(scanner.nextInt());
-                System.out.println(customers.getCustomers().get(1) + StringConstants.bought + products.getProductsList().get(productNumber));
-                System.out.println("Now his current balance = ");
+                getProduct(productNumber = scanner.nextInt());
                 break;
             case 3:
                 System.out.println(StringConstants.messageForSelection);
-                getProduct(scanner.nextInt());
-                System.out.println(customers.getCustomers().get(2) + StringConstants.bought + products.getProductsList().get(0));
-                System.out.println("Now his current balance = ");
+                getProduct(productNumber = scanner.nextInt());
                 break;
             case 4:
                 System.out.println(StringConstants.messageForSelection);
-                getProduct(scanner.nextInt());
-                System.out.println(customers.getCustomers().get(3) + StringConstants.bought + products.getProductsList().get(0));
-                System.out.println("Now his current balance = ");
+                getProduct(productNumber = scanner.nextInt());
                 break;
             case 5:
                 System.out.println(StringConstants.messageForSelection);
-                getProduct(scanner.nextInt());
-                System.out.println(customers.getCustomers().get(4) + StringConstants.bought + products.getProductsList().get(0));
-                System.out.println("Now his current balance = ");
+                getProduct(productNumber = scanner.nextInt());
                 break;
         }
     }
@@ -64,30 +48,37 @@ class Shop {
 
         switch (productNumber) {
             case 1:
-                System.out.println(products.getProductsList().get(productNumber));
-                System.out.println(customers.getCustomers().get(0) + StringConstants.bought + products.getProductsList().get(1));
-                System.out.println("Now his current balance = " + balanceAfterPurchaseMethod("Alex", "Ball"));
+                System.out.println(customers.getCustomers().get(0) + StringConstants.bought + products.getProductsList().get(customerNumber));
+                System.out.println(StringConstants.currentBalance + balanceAfterPurchaseMethod(1,1 ));
                 break;
             case 2:
-                System.out.println(products.getProductsList().get(1));
+                System.out.println(customers.getCustomers().get(1) + StringConstants.bought + products.getProductsList().get(customerNumber));
+                System.out.println(StringConstants.currentBalance);
                 break;
             case 3:
-                System.out.println(products.getProductsList().get(2));
+                System.out.println(customers.getCustomers().get(2) + StringConstants.bought + products.getProductsList().get(customerNumber));
+                System.out.println(StringConstants.currentBalance);
                 break;
             case 4:
-                System.out.println(products.getProductsList().get(3));
+                System.out.println(customers.getCustomers().get(3) + StringConstants.bought + products.getProductsList().get(customerNumber));
+                System.out.println(StringConstants.currentBalance);
                 break;
             case 5:
-                System.out.println(products.getProductsList().get(4));
+                System.out.println(customers.getCustomers().get(4) + StringConstants.bought + products.getProductsList().get(customerNumber));
+                System.out.println(StringConstants.currentBalance);
                 break;
         }
         return productNumber;
     }
 
-    public int balanceAfterPurchaseMethod(String keyForCurrentBalance, String keyForPrice) {
+    public int balanceAfterPurchaseMethod(int customerNumber,int productNumber) {
 
-        int balanceAfterPurchase = customers.getCurrentBalance().get(keyForCurrentBalance) -
-                products.getProductsPrice().get(keyForPrice);
+//        int balanceAfterPurchase = customers.getCurrentBalance().get(keyForCurrentBalance) -
+//                products.getProductsPrice().get(keyForPrice);
+        int balanceAfterPurchase = customers.getCurrentBalance().get(customerNumber) -
+                products.getProductsPrice().get(productNumber);
         return balanceAfterPurchase;
     }
+
+
 }

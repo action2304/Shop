@@ -21,16 +21,16 @@ class Products {
         return productsList;
     }
 
-    private Map<String, Integer> price = new HashMap<>();
+    private Map<Integer, Integer> price = new HashMap<>();
     {
-        price.put(productsList.get(0), 10);
-        price.put(productsList.get(1), 30);
-        price.put(productsList.get(2), 15);
-        price.put(productsList.get(3), 50);
-        price.put(productsList.get(4), 100);
+        price.put(1, 10);
+        price.put(2, 30);
+        price.put(3, 15);
+        price.put(4, 50);
+        price.put(5, 100);
     }
 
-    public Map<String, Integer> getProductsPrice(){
+    public Map<Integer, Integer> getProductsPrice(){
         return price;
     }
 }
