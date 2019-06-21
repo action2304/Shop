@@ -21,17 +21,17 @@ class Customers {
         return customers;
     }
 
-    private Map<String, Integer> currentBalance = new HashMap<>();
+    private Map<Integer, Integer> currentBalance = new HashMap<>();
 
     {
-        currentBalance.put(customers.get(0), 1000);
-        currentBalance.put(customers.get(1), 2000);
-        currentBalance.put(customers.get(2), 500);
-        currentBalance.put(customers.get(3), 1300);
-        currentBalance.put(customers.get(4), 700);
+        currentBalance.put(0, 1000);
+        currentBalance.put(1, 2000);
+        currentBalance.put(2, 500);
+        currentBalance.put(3, 1300);
+        currentBalance.put(4, 700);
     }
 
-    public Map<String, Integer> getCurrentBalance(){
+    public Map<Integer, Integer> getCurrentBalance(){
         return currentBalance;
     }
 }

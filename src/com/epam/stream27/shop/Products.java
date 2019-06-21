@@ -23,11 +23,11 @@ class Products {
 
     private Map<Integer, Integer> price = new HashMap<>();
     {
-        price.put(1, 10);
-        price.put(2, 30);
-        price.put(3, 15);
-        price.put(4, 50);
-        price.put(5, 100);
+        price.put(0, 10);
+        price.put(1, 30);
+        price.put(2, 15);
+        price.put(3, 50);
+        price.put(4, 100);
     }
 
     public Map<Integer, Integer> getProductsPrice(){
